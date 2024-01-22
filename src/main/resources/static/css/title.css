@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+span.title01 {
+	font-size: 70px;
+	color: #0F1035;
+	font-family: Impact;
+}
+
+span.title02 {
+	font-size: 20px;
+	color: #333968;
+	font-family: sans-serif;
+	font-weight: bold;
+}
+
+span.title03 {
+	font-size: 70px;
+	color: #333968;
+	font-family: Impact;
+}
+
+span.title04 {
+	font-size: 40px;
+	color: #7FC7D9;
+	font-family: Impact;
+}
+
+td.skillbox {
+	background-color: #DCF2F1;
+}
+
+td.imgbox {
+	background-color: #EEF5FF;
+}	
+	

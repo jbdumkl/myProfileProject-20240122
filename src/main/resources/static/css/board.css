@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+th.btitle {
+	font-family: malgum;
+	font-size: 18px;
+	background-color: #365486;
+	color: #FFFFFF;
+	border: 1px solid #0F1035;
+}
+
+td.bcontent {
+	font-family: malgum;
+	font-size: 16px;
+	background-color: #7FC7D9;
+	color: #FFFFFF;
+	border: 1px solid #eaeaf9;
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.mkl.home.dao.BoardDao">
+   	
+   	<!--  개시판의 글 중 유저가 클릭한 페이지 번호에 해당하는 글들만 가져오기 -->
+   	<select id="listDao" resultType="com.mkl.home.dto.QAboardDto">
+   		SELECT FROM
+   		(SELECT A.*, FLOOR(((ROWNUM-1)/#{param1})+1)PAGENUM, ROWNUM
+   			FROM
+    			(SELECT * FROM qaboard ORDER BY qbnum DESC)A)
+    				WHERE PAGENUM=#{param2}
+    			
+   	</select>
+   
+   	<!--  개시판 글 쓰기  -->
+   	<insert id="writeDao">
+   		INSERT INTO qaboard(qbnum, qbmid, qbmname, qbmemail, qbtitle, qbcontent) VALUES(qaboard_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5})
+   	</insert>
+
+   	<!--  개시판 번호로 해당 번호의 글 가져오기  -->
+   	<select id="contentViewDao" resultType="com.mkl.home.dto.QAboardDto">
+   		SELECT * FROM qaboard WHERE qbnum=#{param1}
+   	</select>
+
+	<!--  개시판 글 수정  -->
+   	<update id="contentModifyDao">
+   		UPDATE qaboard SET qbtitle=#{param2}, qbcontent=#{param3}, WHERE qbnum=#{param1}
+   	</update>
+
+   	<!-- 게시판 글 삭제 -->
+	<delete id="contentDeleteDao">
+		DELETE FROM qaboard WHERE qbnum=#{param1}
+	</delete>
+	
+	<!-- 총 게시판 글의 수 가져오기 -->
+	<select id="boardAllCountDao" resultType="int">
+		SELECT count(*) FROM qaboard
+	</select>   	
+   	
+</mapper>
